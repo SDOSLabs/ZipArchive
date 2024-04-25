@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,9 +6,9 @@ import PackageDescription
 let package = Package(
     name: "ZipArchive",
     platforms: [
-        .iOS(.v9),
-        .tvOS(.v9),
-        .macOS(.v10_10),
+        .iOS(.v11),
+        .tvOS(.v11),
+        .macOS(.v10_15),
         .watchOS(.v2),
     ],
     products: [
@@ -18,6 +18,9 @@ let package = Package(
         .target(
             name: "ZipArchive",
             path: "SSZipArchive",
+            resources: [
+                .process("Supporting Files/PrivacyInfo.xcprivacy")
+            ],
             cSettings: [
                 .define("HAVE_INTTYPES_H"),
                 .define("HAVE_PKCRYPT"),
